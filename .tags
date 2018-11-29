@@ -1,0 +1,181 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AppPath	.\global.cpp	/^QString AppPath = "";$/;"	v
+BOARDWIDGET_H	.\boardwidget.h	2;"	d
+BOARDWINDOW_H	.\boardwindow.h	2;"	d
+BOARD_SIZE	.\chequer.h	/^const int BOARD_SIZE         = 16; \/\/ 棋盘大小$/;"	v
+BOARD_SIZE_MAXN	.\chequer.h	/^const int BOARD_SIZE_MAXN    = 50; \/\/ 棋盘大小上限$/;"	v
+BoardWidget	.\boardwidget.cpp	/^BoardWidget::BoardWidget(QWidget *parent) : QWidget(parent), Chequer()$/;"	f	class:BoardWidget
+BoardWidget	.\boardwidget.h	/^class BoardWidget : public QWidget, public Chequer$/;"	c
+BoardWindow	.\boardwindow.cpp	/^BoardWindow::BoardWindow(QWidget *parent) : QDialog(parent)$/;"	f	class:BoardWindow
+BoardWindow	.\boardwindow.h	/^class BoardWindow : public QDialog$/;"	c
+CHEQUER_H	.\chequer.h	2;"	d
+Chequer	.\chequer.cpp	/^Chequer::Chequer()$/;"	f	class:Chequer
+Chequer	.\chequer.h	/^class Chequer$/;"	c
+DataPath	.\global.cpp	/^QString DataPath = "";$/;"	v
+FILEUTIL_H	.\fileutil.h	2;"	d
+GAMETABLE_H	.\gametablewidget.h	2;"	d
+GLOBAL_H	.\global.h	2;"	d
+GameTableWidget	.\gametablewidget.cpp	/^GameTableWidget::GameTableWidget(QWidget* parent) : QWidget(parent)$/;"	f	class:GameTableWidget
+GameTableWidget	.\gametablewidget.h	/^class GameTableWidget : public QWidget$/;"	c
+INTEGRAL	.\global.cpp	/^int INTEGRAL = 0;$/;"	v
+LOGINWINDOW_H	.\loginwindow.h	2;"	d
+LoginWindow	.\loginwindow.cpp	/^LoginWindow::LoginWindow(QWidget *parent) : QDialog(parent)$/;"	f	class:LoginWindow
+LoginWindow	.\loginwindow.h	/^class LoginWindow : public QDialog$/;"	c
+MAINWINDOW_H	.\mainwindow.h	2;"	d
+MainWindow	.\Run\ui_mainwindow.h	/^    class MainWindow: public Ui_MainWindow {};$/;"	c	namespace:Ui
+MainWindow	.\mainwindow.cpp	/^MainWindow::MainWindow(QWidget *parent) :$/;"	f	class:MainWindow
+MainWindow	.\mainwindow.h	/^class MainWindow : public QMainWindow$/;"	c
+PASSWORD	.\global.cpp	/^QString PASSWORD = "";$/;"	v
+PIECE_BLACK	.\chequer.h	/^const int PIECE_BLACK        = 1; \/\/ 黑棋子（玩家一）$/;"	v
+PIECE_NONE	.\chequer.h	/^const int PIECE_NONE         = 0; \/\/ 没有棋子$/;"	v
+PIECE_WHITE	.\chequer.h	/^const int PIECE_WHITE        = 2; \/\/ 白棋子（玩家二）$/;"	v
+Path	.\global.cpp	/^QString Path(QString str)$/;"	f
+QT_MOC_LITERAL	.\Run\debug\moc_boardwidget.cpp	25;"	d	file:
+QT_MOC_LITERAL	.\Run\debug\moc_boardwidget.cpp	37;"	d	file:
+QT_MOC_LITERAL	.\Run\debug\moc_gametable.cpp	25;"	d	file:
+QT_MOC_LITERAL	.\Run\debug\moc_gametable.cpp	43;"	d	file:
+QT_MOC_LITERAL	.\Run\debug\moc_gametablewidget.cpp	25;"	d	file:
+QT_MOC_LITERAL	.\Run\debug\moc_gametablewidget.cpp	43;"	d	file:
+QT_MOC_LITERAL	.\Run\debug\moc_loginwindow.cpp	25;"	d	file:
+QT_MOC_LITERAL	.\Run\debug\moc_loginwindow.cpp	37;"	d	file:
+QT_MOC_LITERAL	.\Run\debug\moc_mainwindow.cpp	25;"	d	file:
+QT_MOC_LITERAL	.\Run\debug\moc_mainwindow.cpp	43;"	d	file:
+SERVER_IP	.\global.cpp	/^QString SERVER_IP = "127.0.0.1";$/;"	v
+SERVER_PORT	.\global.cpp	/^int SERVER_PORT = 7878;$/;"	v
+TABLE_COL	.\global.cpp	/^int TABLE_COL = 10;$/;"	v
+TABLE_HEIGHT	.\global.cpp	/^int TABLE_HEIGHT = 110;$/;"	v
+TABLE_H_SPACE	.\global.cpp	/^int TABLE_H_SPACE = 30;$/;"	v
+TABLE_ROW	.\global.cpp	/^int TABLE_ROW = 3;$/;"	v
+TABLE_V_SPACE	.\global.cpp	/^int TABLE_V_SPACE = 30;$/;"	v
+TABLE_WIDTH	.\global.cpp	/^int TABLE_WIDTH = 200;$/;"	v
+UI_MAINWINDOW_H	.\Run\ui_mainwindow.h	10;"	d
+USERNAME	.\global.cpp	/^QString USERNAME = "";$/;"	v
+Ui	.\Run\ui_mainwindow.h	/^namespace Ui {$/;"	n
+Ui_MainWindow	.\Run\ui_mainwindow.h	/^class Ui_MainWindow$/;"	c
+board	.\chequer.h	/^	int board[BOARD_SIZE_MAXN][BOARD_SIZE_MAXN];$/;"	m	class:Chequer
+boardWidget	.\boardwindow.h	/^    BoardWidget* boardWidget;$/;"	m	class:BoardWindow
+boardWindow	.\mainwindow.h	/^    BoardWindow* boardWindow;$/;"	m	class:MainWindow
+board_length	.\chequer.h	/^	int board_length, grid_length, piece_radius;$/;"	m	class:Chequer
+board_static	.\chequer.h	/^	bool board_static[BOARD_SIZE_MAXN][BOARD_SIZE_MAXN];$/;"	m	class:Chequer
+btn_login	.\loginwindow.h	/^    QPushButton* btn_login;$/;"	m	class:LoginWindow
+btn_register	.\loginwindow.h	/^    QPushButton* btn_register;$/;"	m	class:LoginWindow
+btn_static_player1	.\boardwindow.h	/^    QPushButton btn_static_player1, btn_static_player2;$/;"	m	class:BoardWindow
+btn_static_player2	.\boardwindow.h	/^    QPushButton btn_static_player1, btn_static_player2;$/;"	m	class:BoardWindow
+centralWidget	.\Run\ui_mainwindow.h	/^    QWidget *centralWidget;$/;"	m	class:Ui_MainWindow
+col	.\gametablewidget.h	/^    int col, row, id;$/;"	m	class:GameTableWidget
+data	.\Run\debug\moc_boardwidget.cpp	/^    QByteArrayData data[1];$/;"	m	struct:qt_meta_stringdata_BoardWidget_t	file:
+data	.\Run\debug\moc_gametable.cpp	/^    QByteArrayData data[6];$/;"	m	struct:qt_meta_stringdata_GameTable_t	file:
+data	.\Run\debug\moc_gametablewidget.cpp	/^    QByteArrayData data[6];$/;"	m	struct:qt_meta_stringdata_GameTableWidget_t	file:
+data	.\Run\debug\moc_loginwindow.cpp	/^    QByteArrayData data[1];$/;"	m	struct:qt_meta_stringdata_LoginWindow_t	file:
+data	.\Run\debug\moc_mainwindow.cpp	/^    QByteArrayData data[6];$/;"	m	struct:qt_meta_stringdata_MainWindow_t	file:
+deb	.\global.cpp	/^bool deb(QVariant str)$/;"	f
+deb	.\global.cpp	/^bool deb(QVariant str, QString name)$/;"	f
+deleteGlobal	.\global.cpp	/^void deleteGlobal()$/;"	f
+edit_password	.\loginwindow.h	/^    QLineEdit* edit_password;$/;"	m	class:LoginWindow
+edit_username	.\loginwindow.h	/^    QLineEdit* edit_username;$/;"	m	class:LoginWindow
+ensureDirExist	.\fileutil.cpp	/^bool ensureDirExist(QString path)$/;"	f
+ensureFileExist	.\fileutil.cpp	/^bool ensureFileExist(QString path)$/;"	f
+ensureFileNotExist	.\fileutil.cpp	/^bool ensureFileNotExist(QString path)$/;"	f
+gameOver	.\chequer.cpp	/^void Chequer::gameOver(int player)$/;"	f	class:Chequer
+getPlayer	.\gametablewidget.cpp	/^int GameTableWidget::getPlayer()$/;"	f	class:GameTableWidget
+gotoShow	.\boardwindow.cpp	/^void BoardWindow::gotoShow(int id, QString s1, QString s2, bool is1)$/;"	f	class:BoardWindow
+grid_length	.\chequer.h	/^	int board_length, grid_length, piece_radius;$/;"	m	class:Chequer
+id	.\gametablewidget.h	/^    int col, row, id;$/;"	m	class:GameTableWidget
+init	.\chequer.cpp	/^void Chequer::init()$/;"	f	class:Chequer
+initGlobal	.\global.cpp	/^void initGlobal()$/;"	f
+initWindow	.\loginwindow.cpp	/^void LoginWindow::initWindow()$/;"	f	class:LoginWindow
+isDir	.\fileutil.cpp	/^bool isDir(QString path)$/;"	f
+isFileExist	.\fileutil.cpp	/^bool isFileExist(QString path)$/;"	f
+isGameOver	.\chequer.cpp	/^bool Chequer::isGameOver(int x, int y)$/;"	f	class:Chequer
+isPlayer1	.\boardwindow.h	/^    bool isPlayer1;$/;"	m	class:BoardWindow
+isPlaying	.\gametablewidget.cpp	/^bool GameTableWidget::isPlaying()$/;"	f	class:GameTableWidget
+loginWindow	.\mainwindow.h	/^    LoginWindow* loginWindow;$/;"	m	class:MainWindow
+main	.\main.cpp	/^int main(int argc, char *argv[])$/;"	f
+mainToolBar	.\Run\ui_mainwindow.h	/^    QToolBar *mainToolBar;$/;"	m	class:Ui_MainWindow
+menuBar	.\Run\ui_mainwindow.h	/^    QMenuBar *menuBar;$/;"	m	class:Ui_MainWindow
+metaObject	.\Run\debug\moc_boardwidget.cpp	/^const QMetaObject *BoardWidget::metaObject() const$/;"	f	class:BoardWidget
+metaObject	.\Run\debug\moc_gametable.cpp	/^const QMetaObject *GameTable::metaObject() const$/;"	f	class:GameTable
+metaObject	.\Run\debug\moc_gametablewidget.cpp	/^const QMetaObject *GameTableWidget::metaObject() const$/;"	f	class:GameTableWidget
+metaObject	.\Run\debug\moc_loginwindow.cpp	/^const QMetaObject *LoginWindow::metaObject() const$/;"	f	class:LoginWindow
+metaObject	.\Run\debug\moc_mainwindow.cpp	/^const QMetaObject *MainWindow::metaObject() const$/;"	f	class:MainWindow
+mousePressEvent	.\gametablewidget.cpp	/^void GameTableWidget::mousePressEvent(QMouseEvent*)$/;"	f	class:GameTableWidget
+movesBoard	.\chequer.cpp	/^void Chequer::movesBoard(int mouseX, int mouseY)$/;"	f	class:Chequer
+movesGrid	.\chequer.cpp	/^void Chequer::movesGrid(int x, int y)$/;"	f	class:Chequer
+nextTurn	.\chequer.cpp	/^void Chequer::nextTurn()$/;"	f	class:Chequer
+paint	.\chequer.cpp	/^void Chequer::paint(QPainter& painter)$/;"	f	class:Chequer
+paintEvent	.\boardwidget.cpp	/^void BoardWidget::paintEvent(QPaintEvent *e)$/;"	f	class:BoardWidget
+paintEvent	.\gametablewidget.cpp	/^void GameTableWidget::paintEvent(QPaintEvent *e)$/;"	f	class:GameTableWidget
+password	.\loginwindow.h	/^    QString password;$/;"	m	class:LoginWindow
+piece_radius	.\chequer.h	/^	int board_length, grid_length, piece_radius;$/;"	m	class:Chequer
+player1	.\boardwindow.h	/^    QString player1, player2; \/\/ 玩家的名称$/;"	m	class:BoardWindow
+player1	.\gametablewidget.h	/^    QString player1, player2;$/;"	m	class:GameTableWidget
+player2	.\boardwindow.h	/^    QString player1, player2; \/\/ 玩家的名称$/;"	m	class:BoardWindow
+player2	.\gametablewidget.h	/^    QString player1, player2;$/;"	m	class:GameTableWidget
+playing	.\gametablewidget.h	/^    bool playing;$/;"	m	class:GameTableWidget
+qt_meta_data_BoardWidget	.\Run\debug\moc_boardwidget.cpp	/^static const uint qt_meta_data_BoardWidget[] = {$/;"	v	file:
+qt_meta_data_GameTable	.\Run\debug\moc_gametable.cpp	/^static const uint qt_meta_data_GameTable[] = {$/;"	v	file:
+qt_meta_data_GameTableWidget	.\Run\debug\moc_gametablewidget.cpp	/^static const uint qt_meta_data_GameTableWidget[] = {$/;"	v	file:
+qt_meta_data_LoginWindow	.\Run\debug\moc_loginwindow.cpp	/^static const uint qt_meta_data_LoginWindow[] = {$/;"	v	file:
+qt_meta_data_MainWindow	.\Run\debug\moc_mainwindow.cpp	/^static const uint qt_meta_data_MainWindow[] = {$/;"	v	file:
+qt_meta_stringdata_BoardWidget	.\Run\debug\moc_boardwidget.cpp	/^static const qt_meta_stringdata_BoardWidget_t qt_meta_stringdata_BoardWidget = {$/;"	v	file:
+qt_meta_stringdata_BoardWidget_t	.\Run\debug\moc_boardwidget.cpp	/^struct qt_meta_stringdata_BoardWidget_t {$/;"	s	file:
+qt_meta_stringdata_GameTable	.\Run\debug\moc_gametable.cpp	/^static const qt_meta_stringdata_GameTable_t qt_meta_stringdata_GameTable = {$/;"	v	file:
+qt_meta_stringdata_GameTableWidget	.\Run\debug\moc_gametablewidget.cpp	/^static const qt_meta_stringdata_GameTableWidget_t qt_meta_stringdata_GameTableWidget = {$/;"	v	file:
+qt_meta_stringdata_GameTableWidget_t	.\Run\debug\moc_gametablewidget.cpp	/^struct qt_meta_stringdata_GameTableWidget_t {$/;"	s	file:
+qt_meta_stringdata_GameTable_t	.\Run\debug\moc_gametable.cpp	/^struct qt_meta_stringdata_GameTable_t {$/;"	s	file:
+qt_meta_stringdata_LoginWindow	.\Run\debug\moc_loginwindow.cpp	/^static const qt_meta_stringdata_LoginWindow_t qt_meta_stringdata_LoginWindow = {$/;"	v	file:
+qt_meta_stringdata_LoginWindow_t	.\Run\debug\moc_loginwindow.cpp	/^struct qt_meta_stringdata_LoginWindow_t {$/;"	s	file:
+qt_meta_stringdata_MainWindow	.\Run\debug\moc_mainwindow.cpp	/^static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {$/;"	v	file:
+qt_meta_stringdata_MainWindow_t	.\Run\debug\moc_mainwindow.cpp	/^struct qt_meta_stringdata_MainWindow_t {$/;"	s	file:
+qt_metacall	.\Run\debug\moc_boardwidget.cpp	/^int BoardWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:BoardWidget
+qt_metacall	.\Run\debug\moc_gametable.cpp	/^int GameTable::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:GameTable
+qt_metacall	.\Run\debug\moc_gametablewidget.cpp	/^int GameTableWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:GameTableWidget
+qt_metacall	.\Run\debug\moc_loginwindow.cpp	/^int LoginWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:LoginWindow
+qt_metacall	.\Run\debug\moc_mainwindow.cpp	/^int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:MainWindow
+qt_metacast	.\Run\debug\moc_boardwidget.cpp	/^void *BoardWidget::qt_metacast(const char *_clname)$/;"	f	class:BoardWidget
+qt_metacast	.\Run\debug\moc_gametable.cpp	/^void *GameTable::qt_metacast(const char *_clname)$/;"	f	class:GameTable
+qt_metacast	.\Run\debug\moc_gametablewidget.cpp	/^void *GameTableWidget::qt_metacast(const char *_clname)$/;"	f	class:GameTableWidget
+qt_metacast	.\Run\debug\moc_loginwindow.cpp	/^void *LoginWindow::qt_metacast(const char *_clname)$/;"	f	class:LoginWindow
+qt_metacast	.\Run\debug\moc_mainwindow.cpp	/^void *MainWindow::qt_metacast(const char *_clname)$/;"	f	class:MainWindow
+qt_static_metacall	.\Run\debug\moc_boardwidget.cpp	/^void BoardWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:BoardWidget
+qt_static_metacall	.\Run\debug\moc_gametable.cpp	/^void GameTable::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:GameTable
+qt_static_metacall	.\Run\debug\moc_gametablewidget.cpp	/^void GameTableWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:GameTableWidget
+qt_static_metacall	.\Run\debug\moc_loginwindow.cpp	/^void LoginWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:LoginWindow
+qt_static_metacall	.\Run\debug\moc_mainwindow.cpp	/^void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:MainWindow
+readExistedTextFile	.\fileutil.cpp	/^QString readExistedTextFile(QString path)$/;"	f
+readTextFile	.\fileutil.cpp	/^QString readTextFile(QString path)$/;"	f
+readTextFile	.\fileutil.cpp	/^QString readTextFile(QString path, QString codec)$/;"	f
+readTextFile	.\fileutil.cpp	/^QString readTextFile(QString path, QTextCodec *codec)$/;"	f
+retranslateUi	.\Run\ui_mainwindow.h	/^    void retranslateUi(QMainWindow *MainWindow)$/;"	f	class:Ui_MainWindow
+row	.\gametablewidget.h	/^    int col, row, id;$/;"	m	class:GameTableWidget
+setBoardLength	.\chequer.cpp	/^void Chequer::setBoardLength(int x)$/;"	f	class:Chequer
+setId	.\gametablewidget.cpp	/^void GameTableWidget::setId(int i)$/;"	f	class:GameTableWidget
+setPlaying	.\gametablewidget.cpp	/^void GameTableWidget::setPlaying(int p)$/;"	f	class:GameTableWidget
+setupUi	.\Run\ui_mainwindow.h	/^    void setupUi(QMainWindow *MainWindow)$/;"	f	class:Ui_MainWindow
+signalPressed	.\Run\debug\moc_gametable.cpp	/^void GameTable::signalPressed(int _t1, QString _t2, QString _t3)$/;"	f	class:GameTable
+signalPressed	.\Run\debug\moc_gametablewidget.cpp	/^void GameTableWidget::signalPressed(int _t1, QString _t2, QString _t3)$/;"	f	class:GameTableWidget
+slotEnterTable	.\mainwindow.cpp	/^void MainWindow::slotEnterTable(int id, QString player1, QString player2)$/;"	f	class:MainWindow
+start	.\chequer.cpp	/^void Chequer::start()$/;"	f	class:Chequer
+staticMetaObject	.\Run\debug\moc_boardwidget.cpp	/^const QMetaObject BoardWidget::staticMetaObject = {$/;"	m	class:BoardWidget	file:
+staticMetaObject	.\Run\debug\moc_gametable.cpp	/^const QMetaObject GameTable::staticMetaObject = {$/;"	m	class:GameTable	file:
+staticMetaObject	.\Run\debug\moc_gametablewidget.cpp	/^const QMetaObject GameTableWidget::staticMetaObject = {$/;"	m	class:GameTableWidget	file:
+staticMetaObject	.\Run\debug\moc_loginwindow.cpp	/^const QMetaObject LoginWindow::staticMetaObject = {$/;"	m	class:LoginWindow	file:
+staticMetaObject	.\Run\debug\moc_mainwindow.cpp	/^const QMetaObject MainWindow::staticMetaObject = {$/;"	m	class:MainWindow	file:
+statusBar	.\Run\ui_mainwindow.h	/^    QStatusBar *statusBar;$/;"	m	class:Ui_MainWindow
+stringdata0	.\Run\debug\moc_boardwidget.cpp	/^    char stringdata0[12];$/;"	m	struct:qt_meta_stringdata_BoardWidget_t	file:
+stringdata0	.\Run\debug\moc_gametable.cpp	/^    char stringdata0[44];$/;"	m	struct:qt_meta_stringdata_GameTable_t	file:
+stringdata0	.\Run\debug\moc_gametablewidget.cpp	/^    char stringdata0[50];$/;"	m	struct:qt_meta_stringdata_GameTableWidget_t	file:
+stringdata0	.\Run\debug\moc_loginwindow.cpp	/^    char stringdata0[12];$/;"	m	struct:qt_meta_stringdata_LoginWindow_t	file:
+stringdata0	.\Run\debug\moc_mainwindow.cpp	/^    char stringdata0[46];$/;"	m	struct:qt_meta_stringdata_MainWindow_t	file:
+table_id	.\boardwindow.h	/^    int table_id;$/;"	m	class:BoardWindow
+turn	.\chequer.h	/^	int turn;$/;"	m	class:Chequer
+username	.\loginwindow.h	/^    QString username;$/;"	m	class:LoginWindow
+writeTextFile	.\fileutil.cpp	/^bool writeTextFile(QString path, QString text)$/;"	f
+writeTextFile	.\fileutil.cpp	/^bool writeTextFile(QString path, QString text, QString codec)$/;"	f
+writeTextFile	.\fileutil.cpp	/^bool writeTextFile(QString path, QString text, QTextCodec *codec)$/;"	f
+~MainWindow	.\mainwindow.cpp	/^MainWindow::~MainWindow()$/;"	f	class:MainWindow

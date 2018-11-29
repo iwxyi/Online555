@@ -1,0 +1,316 @@
+#include "boardwindow.h"
+
+BoardWindow::BoardWindow(QWidget *parent) : QDialog(parent)
+{
+    this->setModal(true);
+    this->setGeometry(100, 100,900, 500);
+    move( parent->geometry().left()+parent->width()/2-this->width()/2, parent->geometry().top()+parent->height()/2-this->height()/2 );
+
+    btn_static_player1 = new QPushButton("准备完毕");
+    btn_static_player2 = new QPushButton("准备完毕");
+    lb_static_player1 = new QLabel("未准备好");
+    lb_static_player2 = new QLabel("未准备好");
+    head_player1 = new QLabel();
+    head_player2 = new QLabel();
+
+    QPixmap head_black(":/image/head_black.png");
+    QPixmap head_white(":/image/head_white.png");
+    head_player1->setPixmap(head_black);
+    head_player2->setPixmap(head_white);
+    head_player1->setAlignment(Qt::AlignCenter);
+    head_player2->setAlignment(Qt::AlignCenter);
+    lb_static_player1->setAlignment(Qt::AlignCenter);
+    lb_static_player2->setAlignment(Qt::AlignCenter);
+    QFont font;
+    font.setPointSize(20);
+    lb_static_player1->setFont(font);
+    lb_static_player2->setFont(font);
+    ready1 = ready2 = false;
+    connect(btn_static_player1, QPushButton::clicked,[=](){
+        if (!ready1)
+        {
+            ready1 = true;
+            lb_static_player1->setText("等待开始");
+            btn_static_player1->setText("取消准备");
+            QPalette pe;
+            pe.setColor(QPalette::WindowText, Qt::red);
+            lb_static_player1->setPalette(pe);
+
+            QString res = makeXml(table_id, "TABLE_ID") + makeXml(1, "TEABLE_SEAT");
+            SOCKET->sendData("ready", res);
+        }
+        else
+        {
+            ready1 = false;
+            lb_static_player1->setText("未准备好");
+            btn_static_player1->setText("准备完毕");
+            QPalette pe;
+            pe.setColor(QPalette::WindowText, Qt::black);
+            lb_static_player1->setPalette(pe);
+
+            QString res = makeXml(table_id, "TABLE_ID") + makeXml(1, "TEABLE_SEAT");
+            SOCKET->sendData("notready", res);
+        }
+    });
+    connect(btn_static_player2, QPushButton::clicked,[=](){
+        if (!ready2)
+        {
+            ready2 = true;
+            lb_static_player2->setText("等待开始");
+            btn_static_player2->setText("取消准备");
+            QPalette pe;
+            pe.setColor(QPalette::WindowText, Qt::red);
+            lb_static_player2->setPalette(pe);
+
+            QString res = makeXml(table_id, "TABLE_ID") + makeXml(2, "TEABLE_SEAT");
+            SOCKET->sendData("ready", res);
+        }
+        else
+        {
+            ready2 = false;
+            lb_static_player2->setText("未准备好");
+            btn_static_player2->setText("准备完毕");
+            QPalette pe;
+            pe.setColor(QPalette::WindowText, Qt::black);
+            lb_static_player2->setPalette(pe);
+
+            QString res = makeXml(table_id, "TABLE_ID") + makeXml(2, "TEABLE_SEAT");
+            SOCKET->sendData("notready", res);
+        }
+    });
+
+    QHBoxLayout* mainLayout = new QHBoxLayout(this);
+    QVBoxLayout* leftLayout = new QVBoxLayout(this);
+    QVBoxLayout* rightLayout = new QVBoxLayout(this);
+    boardWidget = new BoardWidget(this);
+
+    leftLayout->addWidget(head_player1);
+    leftLayout->addWidget(lb_static_player1);
+    leftLayout->addWidget(btn_static_player1);
+    leftLayout->setAlignment(Qt::AlignCenter);
+    leftLayout->setSpacing(20);
+
+    rightLayout->addWidget(head_player2);
+    rightLayout->addWidget(lb_static_player2);
+    rightLayout->addWidget(btn_static_player2);
+    rightLayout->setAlignment(Qt::AlignCenter);
+    rightLayout->setSpacing(20);
+
+    mainLayout->addLayout(leftLayout);
+    mainLayout->addWidget(boardWidget);
+    mainLayout->addLayout(rightLayout);
+
+    mainLayout->setStretch(0, 2);
+    mainLayout->setStretch(1, 5);
+    mainLayout->setStretch(2, 2);
+
+    this->setLayout(mainLayout);
+
+    connect(boardWidget, SIGNAL(signalMovesGridEvent(int,int)), this, SLOT(slotMovesGridEvent(int,int)));
+}
+
+void BoardWindow::setSeat(int seat, QString username, int state)
+{
+    if (seat == 1)
+    {
+        player1 = username;
+        ready1 = state==2 ? true : false;
+    }
+    else
+    {
+        player2 = username;
+        ready2 = state==2 ? true : false;
+    }
+}
+
+void BoardWindow::enterTable(int id, QString s1, QString s2, bool is1)
+{
+    /*table_id = id;
+    player1 = s1;
+    player2 = s2;
+    if (is1 == true)
+    {
+        table_seat = 1;
+        btn_static_player1->show();
+        btn_static_player2->hide();
+        head_player1->show();
+        if (player2 == "")
+            head_player2->hide();
+        else
+            head_player2->show();
+    }
+    else
+    {
+        table_seat = 2;
+        btn_static_player1->hide();
+        btn_static_player2->show();
+        if (player1 == "")
+            head_player1->hide();
+        else
+            head_player1->show();
+        head_player2->show();
+    }
+    boardWidget->setMe(table_seat);
+
+    this->show();*/
+
+    SOCKET->sendData("enter", makeXml(table_id, "TABLE_ID")+makeXml(table_seat, "TABLE_SEAT"));
+
+    QMessageBox::information(this, "fweuf", QString("%1").arg(id));
+}
+
+void BoardWindow::closeEvent(QCloseEvent *e)
+{
+    if (ready1 && ready2)
+    {
+        if (QMessageBox::question(NULL, "question", "Content", QMessageBox::Yes | QMessageBox::No, QMessageBox::No) != QMessageBox::Yes)
+        {
+            e->ignore();
+            return ;
+        }
+        e->accept();
+    }
+    else
+    {
+        e->accept();
+    }
+    SOCKET->sendData(makeXml("leave", "KIND"));
+}
+
+void BoardWindow::slotSwitchRecv(QString str)
+{
+    QString kind = getXml(str, "KIND");
+
+    if (kind == "come") // 对手加入
+    {
+        if (table_seat == 1)
+        {
+            // 显示2
+            head_player2->show();
+        }
+        else
+        {
+            // 显示1
+            head_player1->show();
+        }
+    }
+    else if (kind == "leave") // 离开
+    {
+        ;
+    }
+    else if (kind == "alone") // 对手离开
+    {
+        if (table_seat == 1)
+        {
+            head_player2->hide();
+        }
+        else
+        {
+            head_player1->hide();
+        }
+    }
+    else if (kind == "ready") // 对手准备完毕
+    {
+        if (table_seat == 1)
+        {
+            ready2 = true;
+            lb_static_player2->setText("等待开始");
+            btn_static_player2->setText("取消准备");
+            QPalette pe;
+            pe.setColor(QPalette::WindowText, Qt::red);
+            lb_static_player2->setPalette(pe);
+        }
+        else
+        {
+            ready1 = true;
+            lb_static_player1->setText("等待开始");
+            btn_static_player1->setText("取消准备");
+            QPalette pe;
+            pe.setColor(QPalette::WindowText, Qt::red);
+            lb_static_player1->setPalette(pe);
+        }
+    }
+    else if (kind == "notready") // 对手取消准备
+    {
+        if (table_seat == 1)
+        {
+            ready2 = false;
+            lb_static_player2->setText("未准备好");
+            btn_static_player2->setText("准备完毕");
+            QPalette pe;
+            pe.setColor(QPalette::WindowText, Qt::black);
+            lb_static_player2->setPalette(pe);
+        }
+        else
+        {
+            ready1 = false;
+            lb_static_player1->setText("未准备好");
+            btn_static_player1->setText("准备完毕");
+            QPalette pe;
+            pe.setColor(QPalette::WindowText, Qt::black);
+            lb_static_player1->setPalette(pe);
+        }
+    }
+    else if (kind == "start") // 开始游戏
+    {
+        boardWidget->start();
+        btn_static_player1->hide();
+        btn_static_player2->hide();
+        lb_static_player1->setText("正在对战");
+        lb_static_player2->setText("正在对战");
+        QPalette pe;
+        pe.setColor(QPalette::WindowText, Qt::red);
+        lb_static_player1->setPalette(pe);
+        lb_static_player2->setPalette(pe);
+    }
+    else if (kind == "moves") // 落子
+    {
+        int id = getXml(str, "TABLE_ID").toInt();
+        int seat = getXml(str, "TABLE_SEAT").toInt();
+        int x = getXml(str, "PIECE_X").toInt();
+        int y = getXml(str, "PIECE_Y").toInt();
+        int p = getXml(str, "PLAYER").toInt();
+        if (x <= 0 || y <= 0 || x >= BOARD_SIZE || y >= BOARD_SIZE)
+            return ;
+        if (id != table_id /*不是这一桌*/ || seat == table_seat /*是自己*/) return ;
+        boardWidget->movesGrid(x, y);
+        boardWidget->update();
+    }
+    else if (kind == "over") // 游戏结束，统计奖励
+    {
+        int winner = getXml(str, "WINNER").toInt();
+        boardWidget->toGameOver(winner);
+
+        if (table_seat == 1)
+            btn_static_player1->show();
+        else
+            btn_static_player2->show();
+        lb_static_player1->setText("对战结束");
+        lb_static_player2->setText("对战结束");
+        QPalette pe;
+        pe.setColor(QPalette::WindowText, Qt::black);
+        lb_static_player1->setPalette(pe);
+        lb_static_player2->setPalette(pe);
+        btn_static_player1->setText("重新开始");
+        btn_static_player2->setText("重新开始");
+        ready1 = false;
+        ready2 = false;
+
+        if (winner == table_seat) // 自己赢了
+        {
+            ;
+        }
+        else
+        {
+            ;
+        }
+    }
+}
+
+/*void BoardWindow::slotMovesGridEvent(int x, int y)
+{
+    QMessageBox::information(this, "nefu", "niewf");
+    QString str = makeXml(table_id, "TABLE_ID") + makeXml(table_seat, "TABLE_SEAT") + makeXml(table_seat, "PLAYER") + makeXml(x, "PIECE_X") + makeXml(y, "PIECE_Y");
+    SOCKET->sendData("moves", str);
+}*/
+
