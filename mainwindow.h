@@ -24,7 +24,6 @@ public:
 public slots:
 	void slotUserInfo(QString username, int integral, int rank);
     void slotEnterTable(int id, QString player1, QString player2);
-
     void slotSwitchRecv(QString str);
 
 private:

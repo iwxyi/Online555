@@ -75,6 +75,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(loginButton, QPushButton::clicked, [=]{
         loginWindow->show();
     });
+    connect(nameButton, QPushButton::clicked, [=]{
+        SOCKET->sendData("rank", "");
+    });
     connect(loginWindow, SIGNAL(signalUserInfo(QString,int,int)), this, SLOT(slotUserInfo(QString,int,int)));
     connect(boardWindow, SIGNAL(signalUserInfo(QString,int,int)), this, SLOT(slotUserInfo(QString,int,int)));
 }
@@ -134,6 +137,7 @@ void MainWindow::slotEnterTable(int id, QString player1, QString player2)
  */
 void MainWindow::slotSwitchRecv(QString str)
 {
+    //QMessageBox::information(this, "receive", str);
     QString kind = getXml(str, "KIND");
 
     if (kind == "refresh")
@@ -152,5 +156,16 @@ void MainWindow::slotSwitchRecv(QString str)
             tableWidgets.at(i)->setSeat(2, name2, state2);
         }
         this->update();
+    }
+    else if (kind == "rank")
+    {
+        QStringList names = getStrMids(str, "<N>", "</N>");
+        QStringList ranks = getStrMids(str, "<R>", "</R>");
+        QStringList intes = getStrMids(str, "<I>", "</I>");
+
+        QString msg = "排名\t昵称\t积分\n";
+        for (int i = 0; i < names.size(); i++)
+            msg += ranks.at(i) + "\t" + names.at(i) + "\t" + intes.at(i) + "\n";
+        QMessageBox::information(this, tr("游戏排名"), msg);
     }
 }

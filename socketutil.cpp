@@ -93,6 +93,10 @@ void SocketUtil::switchRecv(QString str)
     {
         emit signalToMainWindow(str);
     }
+    else if (kind == "rank")
+    {
+        emit signalToMainWindow(str);
+    }
     else if (kind == "register")
     {
         emit signalToLoginWindow(str);
@@ -137,4 +141,10 @@ void SocketUtil::switchRecv(QString str)
     {
         emit signalToBoardWindow(str);
     }
+
+    int pos = str.indexOf("</KIND>");
+    if (pos == -1) return ;
+    int pos2 = str.indexOf("<KIND>", pos+7);
+    if (pos2 != -1)
+        switchRecv(str.right(str.length()-pos2));
 }

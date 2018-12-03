@@ -221,11 +221,21 @@ void BoardWindow::slotSwitchRecv(QString str)
         {
             // 显示2
             head_player2->show();
+
+            QPalette pe;
+            pe.setColor(QPalette::WindowText, Qt::darkYellow);
+            lb_static_player2->setPalette(pe);
+            lb_static_player2->setText("未准备好");
         }
         else
         {
             // 显示1
             head_player1->show();
+
+            QPalette pe;
+            pe.setColor(QPalette::WindowText, Qt::darkYellow);
+            lb_static_player1->setPalette(pe);
+            lb_static_player1->setText("未准备好");
         }
     }
     else if (kind == "leave") // 离开
@@ -331,6 +341,8 @@ void BoardWindow::slotSwitchRecv(QString str)
         pe.setColor(QPalette::WindowText, Qt::red);
         lb_static_player1->setPalette(pe);
         lb_static_player2->setPalette(pe);
+
+        boardWidget->update();
     }
     else if (kind == "moves") // 落子
     {

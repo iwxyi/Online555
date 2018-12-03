@@ -65,27 +65,35 @@ void GameTableWidget::paintEvent(QPaintEvent *e)
 
     int side_length = width >> 1;
     if (side_length >= height)
-	side_length = height >> 1;
+        side_length = height >> 1;
 
     int player_length = side_length >> 1;
 
+    // 画桌子
     QPainter painter(this);
     painter.setBrush(QBrush(Qt::blue, Qt::SolidPattern));
     painter.drawEllipse(width/2-side_length/2, height/2-side_length/2, side_length, side_length);
 
+    // 画左边的玩家
     if (player1 == "") {
-	painter.setBrush(QBrush(Qt::white, Qt::SolidPattern));
+        painter.setBrush(QBrush(Qt::white, Qt::SolidPattern));
     } else {
-	painter.setBrush(QBrush(Qt::black, Qt::SolidPattern));
+        painter.setBrush(QBrush(Qt::black, Qt::SolidPattern));
     }
     painter.drawEllipse(width/2-side_length/2-player_length, height/2-player_length/2, player_length, player_length);
 
+    // 画右边的玩家
     if (player2 == "") {
-	painter.setBrush(QBrush(Qt::white, Qt::SolidPattern));
+        painter.setBrush(QBrush(Qt::white, Qt::SolidPattern));
     } else {
-	painter.setBrush(QBrush(Qt::black, Qt::SolidPattern));
+        painter.setBrush(QBrush(Qt::black, Qt::SolidPattern));
     }
     painter.drawEllipse(width/2+side_length/2, height/2-player_length/2, player_length, player_length);
+
+    painter.setBrush(QBrush(Qt::black, Qt::SolidPattern));
+    int pixelSize = painter.font().pixelSize();
+    painter.drawText(width/2-side_length/2-player_length, height/2-player_length/2-pixelSize, player1);
+    painter.drawText(width/2+side_length/2, height/2-player_length/2-pixelSize, player2);
 
     return QWidget::paintEvent(e);
 }

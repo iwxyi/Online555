@@ -27,6 +27,7 @@ void Chequer::init()
  */
 void Chequer::start()
 {
+    init();
     turn = PIECE_BLACK; // 黑子先下
 }
 
