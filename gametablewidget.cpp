@@ -90,10 +90,11 @@ void GameTableWidget::paintEvent(QPaintEvent *e)
     }
     painter.drawEllipse(width/2+side_length/2, height/2-player_length/2, player_length, player_length);
 
+    // 画玩家的名字
     painter.setBrush(QBrush(Qt::black, Qt::SolidPattern));
     int pixelSize = painter.font().pixelSize();
-    painter.drawText(width/2-side_length/2-player_length, height/2-player_length/2-pixelSize, player1);
-    painter.drawText(width/2+side_length/2, height/2-player_length/2-pixelSize, player2);
+    painter.drawText(width/2-side_length/2-player_length, height/2-player_length/2-pixelSize*1.5, player1);
+    painter.drawText(width/2+side_length/2, height/2-player_length/2-pixelSize*1.5, player2);
 
     return QWidget::paintEvent(e);
 }

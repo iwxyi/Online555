@@ -17,6 +17,7 @@ void BoardWidget::paintEvent(QPaintEvent *)
     QPainter painter(this);
     Chequer::paint(painter);
 }
+
 /**
  * 鼠标点击事件
  * @param e 鼠标事件

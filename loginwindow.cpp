@@ -71,7 +71,7 @@ void LoginWindow::slotSwitchRecv(QString str)
 {
     QString kind = getXml(str, "KIND");
 
-    if (kind == "register")
+    if (kind == "register") // 注册
     {
         QString rst = getXml(str, "RESULT");
         if (rst != "1")
@@ -85,7 +85,7 @@ void LoginWindow::slotSwitchRecv(QString str)
             USERNAME = edit_username->text();
             PASSWORD = edit_password->text();
             INTEGRAL = 0;
-            this->hide();
+            this->hide(); // 隐藏本窗口
 
             int integral = getXml(str, "INTEGRAL").toInt();
             int rank = getXml(str, "RANK").toInt();
@@ -93,7 +93,7 @@ void LoginWindow::slotSwitchRecv(QString str)
             emit signalUserInfo(username, integral, rank);
         }
     }
-    else if (kind == "login")
+    else if (kind == "login") // 登录
     {
         QString rst = getXml(str, "RESULT");
         if (rst != "1")
@@ -107,10 +107,10 @@ void LoginWindow::slotSwitchRecv(QString str)
             USERNAME = edit_username->text();
             PASSWORD = edit_password->text();
             INTEGRAL = getXml(str, "INTEGRAL").toInt();
-            this->hide();
+            this->hide(); // 隐藏本窗口
 
-            int integral = getXml(str, "INTEGRAL").toInt();
-            int rank = getXml(str, "RANK").toInt();
+            int integral = getXml(str, "INTEGRAL").toInt(); // 用户积分
+            int rank = getXml(str, "RANK").toInt(); // 用户排名
 
             emit signalUserInfo(username, integral, rank);
         }

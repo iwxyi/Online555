@@ -122,7 +122,7 @@ void MainWindow::slotUserInfo(QString username, int integral, int rank)
  */
 void MainWindow::slotEnterTable(int id, QString player1, QString player2)
 {
-    if (USERID == "") // 是否需要登录
+    if (USERID == "") // 是否未登录
     {
         loginWindow->show();
         return ;

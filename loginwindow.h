@@ -17,7 +17,6 @@ class LoginWindow : public QDialog
 public:
     LoginWindow(QWidget *parent = 0);
 
-
 private:
     void initWindow();
 
